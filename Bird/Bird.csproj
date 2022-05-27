@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageVersion>1.0</PackageVersion>
+    <Title>Bird</Title>
+    <Authors>MoxieN</Authors>
+    <Description>Bird is an interactive shell for kernels using CosmosOS framework</Description>
+    <RepositoryUrl>https://github.com/MoxieN/Bird</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>Shell</PackageTags>
+  </PropertyGroup>
+
+</Project>
