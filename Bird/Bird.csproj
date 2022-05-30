@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageVersion>1.0</PackageVersion>
+    <PackageVersion>1.0.$([System.DateTime]::Now.ToString(&quot;yyyyMMdd.HHmm&quot;))</PackageVersion>
     <Title>Bird</Title>
     <Authors>MoxieN</Authors>
     <Description>Bird is an interactive shell for kernels using CosmosOS framework</Description>

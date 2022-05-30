@@ -12,15 +12,9 @@ namespace Bird
         public string Input { get; set; }
         public List<Command> Commands = new();
 
-        public Bird()
-        {
-            Write("Bird shell ", ConsoleColor.Green);
-            WriteLine(version, ConsoleColor.Yellow);
-        }
-
         public void HandleConsole(string namePth, string currentDirectoy)
         {
-            string name = File.ReadAllText(namePth) != null ? File.ReadAllText(namePth) : "Bird";
+            string name = File.Exists(namePth) ? File.ReadAllText(namePth) : "Bird";
             Console.ForegroundColor = ConsoleColor.White;
             Write($"\n{name} ", ConsoleColor.Green);
             if (currentDirectoy == @"0:\")
@@ -108,7 +102,7 @@ namespace Bird
         /// <param name="text">The text to output</param>
         /// <param name="foregroundColor">Change foreground text color</param>
         /// <param name="backgroundColor">Change background text color</param>
-        public static void Write(string text, ConsoleColor foregroundColor = ConsoleColor.White,
+        public void Write(string text, ConsoleColor foregroundColor = ConsoleColor.White,
             ConsoleColor backgroundColor = ConsoleColor.Black)
         {
             Console.ForegroundColor = foregroundColor;
@@ -124,7 +118,7 @@ namespace Bird
         /// <param name="text">The text to output</param>
         /// <param name="foregroundColor">Change foreground text color</param>
         /// <param name="backgroundColor">Change background text color</param>
-        public static void WriteLine(string text, ConsoleColor foregroundColor = ConsoleColor.White,
+        public void WriteLine(string text, ConsoleColor foregroundColor = ConsoleColor.White,
             ConsoleColor backgroundColor = ConsoleColor.Black)
         {
             Console.ForegroundColor = foregroundColor;
@@ -134,7 +128,7 @@ namespace Bird
             Console.BackgroundColor = ConsoleColor.Black;
         }
 
-        public static void WriteChar(char character, ConsoleColor foregroundColor = ConsoleColor.White,
+        public void WriteChar(char character, ConsoleColor foregroundColor = ConsoleColor.White,
             ConsoleColor backgroundColor = ConsoleColor.Black)
         {
             Console.ForegroundColor = foregroundColor;
@@ -144,7 +138,7 @@ namespace Bird
             Console.BackgroundColor = ConsoleColor.Black;
         }
 
-        public static void WriteLineChar(char character, ConsoleColor foregroundColor = ConsoleColor.White,
+        public void WriteLineChar(char character, ConsoleColor foregroundColor = ConsoleColor.White,
             ConsoleColor backgroundColor = ConsoleColor.Black)
         {
             Console.ForegroundColor = foregroundColor;

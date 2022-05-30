@@ -13,11 +13,7 @@ namespace Bird
 
         public virtual void Execute() { }
         public virtual void Execute(List<string> args) { }
-
-        public virtual void Help()
-        {
-            Bird.WriteLine("e: No help available.");
-        }
+        public virtual void Help() { }
 
         public bool ContainsCommand(string command)
         {
