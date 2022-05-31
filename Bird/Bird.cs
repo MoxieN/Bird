@@ -7,7 +7,7 @@ namespace Bird
 {
     public class Bird
     {
-        public readonly string version = "v1.0";
+        public readonly string version = "v1.0.1";
         
         public string Input { get; set; }
         public List<Command> Commands = new();
@@ -18,7 +18,7 @@ namespace Bird
             Console.ForegroundColor = ConsoleColor.White;
             Write($"\n{name} ", ConsoleColor.Green);
             if (currentDirectoy == @"0:\")
-                Write("~", ConsoleColor.Cyan);
+                Write(@"~\", ConsoleColor.Cyan);
             else
                 Write($@"~\{currentDirectoy.Split('\\')[1]}", ConsoleColor.Cyan);
             Write("#", ConsoleColor.Gray);
@@ -46,7 +46,13 @@ namespace Bird
                     if (args.Count == 0)
                         command.Execute();
                     else
+                    {
+                        if(args[0] == "-h")
+                            command.Help();
+                        
                         command.Execute(args);
+                    }
+                    
                 }
         }
         

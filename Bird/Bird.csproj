@@ -3,13 +3,15 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageVersion>1.0.$([System.DateTime]::Now.ToString(&quot;yyyyMMdd.HHmm&quot;))</PackageVersion>
+    <PackageVersion>1.1.$([System.DateTime]::Now.ToString("yyyyMMdd.mm"))</PackageVersion>
     <Title>Bird</Title>
     <Authors>MoxieN</Authors>
     <Description>Bird is an interactive shell for kernels using CosmosOS framework</Description>
     <RepositoryUrl>https://github.com/MoxieN/Bird</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>Shell</PackageTags>
+    <PackageLicenseUrl>https://github.com/MoxieN/Bird/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/MoxieN/Bird</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>
