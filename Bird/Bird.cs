@@ -11,27 +11,42 @@ namespace Bird
         
         public string Input { get; set; }
         public List<Command> Commands = new();
-
+        
+        /// <summary>
+        /// Function to put in your Run method, it will handle the console itself
+        /// </summary>
+        /// <param name="namePth">Where on your filesystem is contained the hostname? if not found it will </param>
+        /// <param name="currentDirectoy">Path of your current directory you set</param>
         public void HandleConsole(string namePth, string currentDirectoy)
         {
             string name = File.Exists(namePth) ? File.ReadAllText(namePth) : "Bird";
+            
             Console.ForegroundColor = ConsoleColor.White;
+            
             Write($"\n{name} ", ConsoleColor.Green);
             if (currentDirectoy == @"0:\")
                 Write(@"~\", ConsoleColor.Cyan);
             else
-                Write($@"~\{currentDirectoy.Split('\\')[1]}", ConsoleColor.Cyan);
+                Write(currentDirectoy, ConsoleColor.Cyan);
             Write("#", ConsoleColor.Gray);
             
             Input = Console.ReadLine();
             if (Input != null) ExecuteCommand(Input);
         }
-
+        
+        /// <summary>
+        /// Register Command
+        /// </summary>
+        /// <param name="command">Command to regiser</param>
         public void RegisterCommand(Command command)
         {
             Commands.Add(command);
         }
         
+        /// <summary>
+        /// Parse the input, then execute the command with arguments or not
+        /// </summary>
+        /// <param name="input"></param>
         public void ExecuteCommand(string input)
         {
             var args = ParseCommandLine(input);
@@ -56,6 +71,11 @@ namespace Bird
                 }
         }
         
+        /// <summary>
+        /// Parse input to support quotes, args
+        /// </summary>
+        /// <param name="cmdLine">Input to parse</param>
+        /// <returns></returns>
         public List<string> ParseCommandLine(string cmdLine)
         {
             var args = new List<string>();
