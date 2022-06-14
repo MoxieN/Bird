@@ -7,7 +7,7 @@ namespace Bird
 {
     public class Bird
     {
-        public readonly string version = "v1.0.1";
+        public const string version = "v1.0.1"; // Il y a pas de ctor  donc . . .
         
         public string Input { get; set; }
         public List<Command> Commands = new();
@@ -138,6 +138,16 @@ namespace Bird
             Console.BackgroundColor = ConsoleColor.Black;
         }
 
+        public void Write(int number, ConsoleColor foregroundColor = ConsoleColor.White,
+    ConsoleColor backgroundColor = ConsoleColor.Black)
+        {
+            Console.ForegroundColor = foregroundColor;
+            Console.BackgroundColor = backgroundColor;
+            Console.Write(number);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+        }
+
         /// <summary>
         ///     Output text with color
         /// </summary>
@@ -154,7 +164,13 @@ namespace Bird
             Console.BackgroundColor = ConsoleColor.Black;
         }
 
-        public void WriteChar(char character, ConsoleColor foregroundColor = ConsoleColor.White,
+        /// <summary>
+        ///     Output text with color
+        /// </summary>
+        /// <param name="character">The char to output</param>
+        /// <param name="foregroundColor">Change foreground text color</param>
+        /// <param name="backgroundColor">Change background text color</param>
+        public void WriteLine(char character, ConsoleColor foregroundColor = ConsoleColor.White,
             ConsoleColor backgroundColor = ConsoleColor.Black)
         {
             Console.ForegroundColor = foregroundColor;
@@ -164,15 +180,24 @@ namespace Bird
             Console.BackgroundColor = ConsoleColor.Black;
         }
 
-        public void WriteLineChar(char character, ConsoleColor foregroundColor = ConsoleColor.White,
+        /// <summary>
+        ///     Output text with color
+        /// </summary>
+        /// <param name="character">The char to output</param>
+        /// <param name="foregroundColor">Change foreground text color</param>
+        /// <param name="backgroundColor">Change background text color</param>
+        public void WriteLine(int number, ConsoleColor foregroundColor = ConsoleColor.White,
             ConsoleColor backgroundColor = ConsoleColor.Black)
         {
             Console.ForegroundColor = foregroundColor;
             Console.BackgroundColor = backgroundColor;
-            Console.Write(character + "\n");
+            Console.Write(number);
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
         }
+
+
+
 
         #endregion
     }
