@@ -2,7 +2,7 @@
 
 namespace Bird
 {
-    public class Command
+    public abstract class Command
     {
         public string[] CommandValues;
 
