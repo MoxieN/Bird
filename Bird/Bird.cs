@@ -13,7 +13,7 @@ namespace Bird
 {
     public class Bird
     {
-        public readonly string version = "v1.0.2";
+        public readonly string version = "v1.1.2";
         
         public string Input { get; set; }
         public List<Command> Commands = new();
