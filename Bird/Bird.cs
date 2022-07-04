@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* PROJECT:          Bird Interactive Shell
+* CONTENT:          Bird Shell - Base
+* PROGRAMMER(S):    Kevan Guillot <kevan37000@hotmail.com>
+*/
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -7,37 +13,40 @@ namespace Bird
 {
     public class Bird
     {
-        public readonly string version = "v1.0.1";
+        public readonly string version = "v1.0.2";
         
         public string Input { get; set; }
         public List<Command> Commands = new();
         
         /// <summary>
-        /// Function to put in your Run method, it will handle the console itself
+        /// Function to put in your Run method, it will handle the console itself.
         /// </summary>
         /// <param name="namePth">Where on your filesystem is contained the hostname? if not found it will </param>
         /// <param name="currentDirectoy">Path of your current directory you set</param>
-        public void HandleConsole(string namePth, string currentDirectoy)
+        /// <param name="userColor">Color of the username part</param>
+        /// <param name="folderColor">Color of the currentDirectory part</param>
+        /// <param name="separator">Separator between the prefix and the console input</param>
+        public void HandleConsole(string name, string currentDirectoy, ConsoleColor userColor, ConsoleColor folderColor, char separator)
         {
-            string name = File.Exists(namePth) ? File.ReadAllText(namePth) : "Bird";
-            
             Console.ForegroundColor = ConsoleColor.White;
             
-            Write($"\n{name} ", ConsoleColor.Green);
+            Write($"\n{name} ", userColor);
+            
             if (currentDirectoy == @"0:\")
-                Write(@"~\", ConsoleColor.Cyan);
+                Write(@"~\", folderColor);
             else
-                Write(currentDirectoy, ConsoleColor.Cyan);
-            Write("#", ConsoleColor.Gray);
+                Write(currentDirectoy, folderColor);
+            
+            WriteChar(separator, ConsoleColor.Gray);
             
             Input = Console.ReadLine();
             if (Input != null) ExecuteCommand(Input);
         }
         
         /// <summary>
-        /// Register Command
+        /// Register Command.
         /// </summary>
-        /// <param name="command">Command to regiser</param>
+        /// <param name="command">Command to register.</param>
         public void RegisterCommand(Command command)
         {
             Commands.Add(command);
